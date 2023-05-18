@@ -1,0 +1,35 @@
+syntax="proto3";
+
+package proto;
+
+import "google/protobuf/empty.proto";
+
+option go_package = "github.com/NovaSoftworks/permissions/proto";
+
+service Permissions {
+    rpc GetPermissionsConfig (google.protobuf.Empty) returns (GetPermissionsConfigResponse);
+}
+
+message GetPermissionsConfigResponse {
+  repeated Permission permissions = 1;
+  repeated Role roles = 2;
+  repeated Group groups = 3;
+}
+
+message Permission {
+  string name = 1;
+  string description = 2;
+}
+
+message Role {
+  string name = 1;
+  string description = 2;
+  repeated string permission_names = 3;
+}
+
+message Group {
+  string name = 1;
+  string description = 2;
+  repeated string role_names = 3;
+}
+
