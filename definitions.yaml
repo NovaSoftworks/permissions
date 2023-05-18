@@ -1,0 +1,50 @@
+permissions:
+- name: account.create
+  description: Allows creating user accounts.
+- name: account.read
+  description: Allows reading user account information.
+- name: account.update
+  description: Allows updating user account information.
+- name: account.delete
+  description: Allows deleting user accounts.
+- name: account.list
+  description: Allows listing all user accounts.
+- name: account.any.read
+  description: Allows reading any user account information.
+- name: account.any.update
+  description: Allows updating any user account information.
+- name: account.any.delete
+  description: Allows deleting any user accounts.
+- name: account.permissions.update
+  description: Allows updating account permissions.
+
+roles:
+  - name: user
+    permissions:
+    - account.read
+    - account.update
+    - account.delete
+    description: Represents a regular user role with basic account permissions.
+  - name: mod
+    permissions:
+    - account.create
+    - account.list
+    - account.read.any
+    - account.update.any
+    - account.delete.any
+    description: Represents a moderator role with full account management permissions.
+  - name: admin
+    permissions:
+    - account.update.permissions
+    description: Represents an administrator role with the ability to update account permissions.
+
+groups:
+  - name: default
+    roles:
+    - user
+    description: Default group for all users.
+  - name: nova
+    roles:
+    - user
+    - mod
+    description: Group for Nova Softworks members, including users' and moderators' permissions.
