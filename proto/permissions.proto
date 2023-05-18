@@ -11,23 +11,23 @@ service Permissions {
 }
 
 message GetPermissionsConfigResponse {
-  repeated Permission permissions = 1;
-  repeated Role roles = 2;
-  repeated Group groups = 3;
+  repeated PermissionConfig permissions = 1;
+  repeated RoleConfig roles = 2;
+  repeated GroupConfig groups = 3;
 }
 
-message Permission {
+message PermissionConfig {
   string name = 1;
   string description = 2;
 }
 
-message Role {
+message RoleConfig {
   string name = 1;
   string description = 2;
   repeated string permission_names = 3;
 }
 
-message Group {
+message GroupConfig {
   string name = 1;
   string description = 2;
   repeated string role_names = 3;
