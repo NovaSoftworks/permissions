@@ -1,10 +1,10 @@
 syntax="proto3";
 
-package proto;
+package pb;
 
 import "google/protobuf/empty.proto";
 
-option go_package = "github.com/NovaSoftworks/permissions/proto";
+option go_package = "github.com/NovaSoftworks/permissions/pb";
 
 service Permissions {
     rpc GetPermissionsConfig (google.protobuf.Empty) returns (GetPermissionsConfigResponse);

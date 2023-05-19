@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.20.3
-// source: proto/permissions.proto
+// source: pb/permissions.proto
 
-package proto
+package pb
 
 import (
 	context "context"
@@ -36,7 +36,7 @@ func NewPermissionsClient(cc grpc.ClientConnInterface) PermissionsClient {
 
 func (c *permissionsClient) GetPermissionsConfig(ctx context.Context, in *emptypb.Empty, opts ...grpc.CallOption) (*GetPermissionsConfigResponse, error) {
 	out := new(GetPermissionsConfigResponse)
-	err := c.cc.Invoke(ctx, "/proto.Permissions/GetPermissionsConfig", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/pb.Permissions/GetPermissionsConfig", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -81,7 +81,7 @@ func _Permissions_GetPermissionsConfig_Handler(srv interface{}, ctx context.Cont
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/proto.Permissions/GetPermissionsConfig",
+		FullMethod: "/pb.Permissions/GetPermissionsConfig",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(PermissionsServer).GetPermissionsConfig(ctx, req.(*emptypb.Empty))
@@ -93,7 +93,7 @@ func _Permissions_GetPermissionsConfig_Handler(srv interface{}, ctx context.Cont
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Permissions_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "proto.Permissions",
+	ServiceName: "pb.Permissions",
 	HandlerType: (*PermissionsServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -102,5 +102,5 @@ var Permissions_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "proto/permissions.proto",
+	Metadata: "pb/permissions.proto",
 }
